@@ -1,0 +1,48 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /oai-ran-du
+  name: oai-ran-du
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|oai-ran-du'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: workloads/oai-ran/oai-ran/pkg-example-du-bp
+    ref: main
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: workloads/oai-ran/oai-ran/pkg-example-du-bp
+    ref: main
+    commit: 273d858df2556807d1c7e28f723102f7d9352afb
+info:
+  description: example cucp blueprint package
+  readinessGates:
+  - conditionType: nephio.org.Specializer.specialize
+pipeline:
+  mutators:
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-replacements:v0.1.1
+    configPath: apply-replacements-owner.yaml
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-replacements:v0.1.1
+    configPath: apply-replacements-namespace.yaml
+  - image: ghcr.io/kptdev/krm-functions-catalog/set-namespace:v0.4.1
+    configPath: package-context.yaml
+  - image: docker.io/nephio/nfdeploy-fn:latest
+  - image: docker.io/nephio/interface-fn:latest
+  - image: docker.io/nephio/nad-fn:latest
+  - image: docker.io/nephio/interface-fn:latest
+  - image: docker.io/nephio/nfdeploy-fn:latest
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-replacements:v0.1.1
+    configPath: apply-replacements-master-interface.yaml
+status:
+  conditions:
+  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+    reason: Failed
+    status: "False"
+    type: nephio.org.Specializer.specialize
+  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.f1
