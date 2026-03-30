@@ -50,17 +50,17 @@ status:
     status: "True"
     message: injected resource "ran" from cluster
     reason: ConfigInjected
-  - message: 'rpc error: code = Unknown desc = dynamic claim: no available routes based on the selector labels map[nephio.org/address-family:ipv4 nephio.org/cluster-name:ran nephio.org/network-name:e1]'
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "False"
+    status: "True"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-e1-ipv4
-  - message: 'rpc error: code = Unknown desc = dynamic claim: no available routes based on the selector labels map[nephio.org/address-family:ipv4 nephio.org/cluster-name:ran nephio.org/network-name:f1]'
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "False"
+    status: "True"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-f1u-ipv4
-  - message: 'rpc error: code = Unknown desc = dynamic claim: no available routes based on the selector labels map[nephio.org/address-family:ipv4 nephio.org/cluster-name:ran nephio.org/network-name:n3]'
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n3
-    status: "False"
+    status: "True"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-n3-ipv4
   - message: update done
     reason: req.nephio.org/v1alpha1.Interface.e1
@@ -70,13 +70,12 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.f1u
     status: "True"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-f1u
-  - message: create initial resource
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n3
-    status: "False"
+    status: "True"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-n3
-  - message: not ready
-    reason: Specialize
-    status: "False"
+  - reason: Ready
+    status: "True"
     type: nephio.org.Specializer.specialize
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Dependency.cucp
@@ -94,8 +93,8 @@ status:
     status: "True"
     type: req.nephio.org/v1alpha1.Interface.f1u
     reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: create initial resource condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.n3
     reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
   - message: update done
@@ -110,6 +109,6 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.n3
     status: "True"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-n3
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
