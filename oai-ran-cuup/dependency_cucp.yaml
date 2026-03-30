@@ -12,3 +12,9 @@ spec:
   injectors:
   - apiVersion: workload.nephio.org/v1alpha1
     kind: NFDeployment
+status:
+  injected:
+  - name: cuup-ran-cucp-myran
+    namespace: oai-ran-cuup
+    apiVersion: ref.nephio.org/v1alpha1
+    kind: Config
