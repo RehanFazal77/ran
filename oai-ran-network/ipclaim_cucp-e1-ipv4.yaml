@@ -15,4 +15,4 @@ spec:
       nephio.org/network-name: e1
   networkInstance:
     name: vpc-cu-e1
-status: {}
+status: {prefix: 172.4.1.2/16, gateway: ""}
