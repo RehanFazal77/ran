@@ -78,6 +78,10 @@ status:
     reason: Specialize
     status: "False"
     type: nephio.org.Specializer.specialize
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Dependency.cucp
+    status: "True"
+    type: ref.nephio.org/v1alpha1.Config.cuup-ran-cucp-myran
   - message: update done
     reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
     status: "True"
@@ -109,7 +113,3 @@ status:
   - message: update for condition
     status: "False"
     type: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Dependency.cucp
-    status: "True"
-    type: ref.nephio.org/v1alpha1.Config.cuup-ran-cucp-myran
