@@ -1,0 +1,38 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /multus-cni
+  name: multus-cni
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|multus-cni'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: networking/multus-cni
+    ref: main
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: networking/multus-cni
+    ref: main
+    commit: 273d858df2556807d1c7e28f723102f7d9352afb
+info:
+  site: https://github.com/k8snetworkplumbingwg/multus-cni
+  description: Multus CNI DaemonSet for multi-interface support with macvlan
+  keywords:
+  - multus
+  - cni
+  - networking
+  - macvlan
+pipeline:
+  mutators:
+  - name: PackageVariant.multus-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: ran
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cni-plugins-image: ghcr.io/k8snetworkplumbingwg/plugins:v1.6.2
+      multus-image: ghcr.io/k8snetworkplumbingwg/multus-cni:v4.0.2
