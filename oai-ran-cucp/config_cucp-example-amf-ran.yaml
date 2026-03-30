@@ -1,0 +1,41 @@
+apiVersion: ref.nephio.org/v1alpha1
+kind: Config
+metadata: # kpt-merge: oai-ran-cucp/cucp-example-amf-ran
+  name: cucp-example-amf-ran
+  namespace: oai-ran-cucp
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: req.nephio.org/v1alpha1.Dependency.amf
+    internal.kpt.dev/upstream-identifier: 'ref.nephio.org|Config|oai-ran-cucp|cucp-example-amf-ran'
+spec:
+  config:
+    apiVersion: workload.nephio.org/v1alpha1
+    kind: NFDeployment
+    metadata:
+      name: amf-ran
+      namespace: oai-core
+      annotations:
+        config.kubernetes.io/index: "0"
+        internal.config.kubernetes.io/index: "0"
+        internal.config.kubernetes.io/path: amfdeployment.yaml
+        internal.kpt.dev/upstream-identifier: workload.nephio.org|NFDeployment|amf-example|amf-example
+    spec:
+      capacity:
+        maxDownlinkThroughput: "0"
+        maxSubscribers: 1000
+        maxUplinkThroughput: "0"
+      interfaces:
+      - name: n2
+        ipv4:
+          address: 172.2.1.1/16
+          gateway: ""
+        vlanID: 4
+      networkInstances:
+      - name: vpc-ran
+        interfaces:
+        - n2
+      parametersRefs:
+      - name: oai-amf-config
+        apiVersion: workload.nephio.org/v1alpha1
+        kind: NFConfig
+      provider: amf.openairinterface.org
