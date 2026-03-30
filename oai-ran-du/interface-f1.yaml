@@ -13,3 +13,9 @@ spec:
     name: vpc-cudu-f1
   cniType: macvlan
   attachmentType: vlan
+status:
+  ipClaimStatus:
+  - prefix: 172.5.1.0/16
+    gateway: ""
+  vlanClaimStatus:
+    vlanID: 3
