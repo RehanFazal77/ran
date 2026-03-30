@@ -10,4 +10,4 @@ metadata:
 spec:
   vlanIndex:
     name: ran
-status: {vlanID: 2}
+status: {vlanID: 5}
