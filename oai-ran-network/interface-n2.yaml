@@ -1,0 +1,19 @@
+# Interface for N2 (Control Plane - CUCP to AMF)
+apiVersion: req.nephio.org/v1alpha1
+kind: Interface
+metadata: # kpt-merge: /n2
+  name: n2
+  annotations:
+    nephio.org/network-name: n2
+    config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.NFDeployment.cucp
+    specializer.nephio.org/namespace: oai-ran
+    internal.kpt.dev/upstream-identifier: 'req.nephio.org|Interface|default|n2'
+spec:
+  networkInstance:
+    name: vpc-ran
+  cniType: macvlan
+status:
+  ipClaimStatus:
+  - prefix: 172.2.0.2/16
+    gateway: ""
