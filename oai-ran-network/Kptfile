@@ -98,17 +98,17 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.n4
     status: "False"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.smf-n4
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.e1
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.f1
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.f1c
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.f1u
   - message: update for condition
     status: "False"
