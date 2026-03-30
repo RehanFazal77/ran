@@ -6,4 +6,4 @@ metadata:
   annotations:
     specializer.nephio.org/owner: req.nephio.org/v1alpha1.Interface.f1u
 spec:
-  config: "{\"cniVersion\":\"0.3.1\",\"plugins\":[{\"type\":\"macvlan\",\"capabilities\":{\"ips\":true},\"master\":\"eno49\",\"mode\":\"bridge\",\"ipam\":{\"type\":\"static\",\"addresses\":[{\"address\":\"172.5.1.4/16\"}]}},{\"type\":\"tuning\",\"capabilities\":{\"mac\":true},\"ipam\":{}}]}"
+  config: "{\"cniVersion\":\"0.3.1\",\"plugins\":[{\"type\":\"macvlan\",\"capabilities\":{\"ips\":true},\"master\":\"eno49\",\"mode\":\"bridge\",\"ipam\":{\"type\":\"static\",\"addresses\":[{\"address\":\"172.5.1.0/16\"}]}},{\"type\":\"tuning\",\"capabilities\":{\"mac\":true},\"ipam\":{}}]}"
