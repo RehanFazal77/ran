@@ -50,9 +50,9 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.f1c
     status: "True"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-f1c-ipv4
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = dynamic claim: no available routes based on the selector labels map[nephio.org/address-family:ipv4 nephio.org/cluster-name:ran nephio.org/network-name:n2]'
     reason: req.nephio.org/v1alpha1.Interface.n2
-    status: "True"
+    status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-n2-ipv4
   - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1u
