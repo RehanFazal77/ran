@@ -1,7 +1,7 @@
 apiVersion: ref.nephio.org/v1alpha1
 kind: Config
 metadata: # kpt-merge: oai-ran-cucp/cucp-example-amf-ran
-  name: cucp-example-amf-ran
+  name: cucp-ran-amf-ran
   namespace: oai-ran-cucp
   annotations:
     specializer.nephio.org/owner: req.nephio.org/v1alpha1.Dependency.amf
