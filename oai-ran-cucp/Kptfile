@@ -50,6 +50,30 @@ status:
     status: "True"
     message: injected resource "ran" from cluster
     reason: ConfigInjected
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-e1-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-f1c-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-n2-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-e1
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-f1c
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
   - message: not ready
     reason: Specialize
     status: "False"
@@ -66,17 +90,6 @@ status:
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.n2
     reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
-  - message: update for condition
-    status: "False"
-    type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "False"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-e1-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-e1
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.e1
     status: "False"
@@ -84,24 +97,11 @@ status:
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.f1c
     status: "False"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-f1c-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1c
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-f1c
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1c
-    status: "False"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-f1c
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.n2
     status: "False"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-n2-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.n2
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.n2
-    status: "False"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-n2
+  - message: update for condition
+    status: "False"
+    type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
