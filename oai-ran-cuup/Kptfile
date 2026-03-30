@@ -50,15 +50,15 @@ status:
     status: "True"
     message: injected resource "ran" from cluster
     reason: ConfigInjected
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default vpc-cu-e1    }'
     reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "True"
+    status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-e1-ipv4
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default vpc-cudu-f1    }'
     reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "True"
+    status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-f1u-ipv4
-  - message: 'rpc error: code = Unknown desc = dynamic claim: no available routes based on the selector labels map[nephio.org/address-family:ipv4 nephio.org/cluster-name:ran nephio.org/network-name:n3]'
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default vpc-internet    }'
     reason: req.nephio.org/v1alpha1.Interface.n3
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-n3-ipv4
@@ -98,17 +98,17 @@ status:
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.n3
     reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default ran    }'
     reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "True"
+    status: "False"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-e1
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default ran    }'
     reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "True"
+    status: "False"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-f1u
-  - message: update done
+  - message: 'rpc error: code = Unknown desc = db not initialized: { default ran    }'
     reason: req.nephio.org/v1alpha1.Interface.n3
-    status: "True"
+    status: "False"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-n3
   - message: update for condition
     status: "False"
