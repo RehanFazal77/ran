@@ -11,3 +11,29 @@ spec:
   - apiVersion: workload.nephio.org/v1alpha1
     kind: NFConfig
     name: cucp-nf-config
+  networkInstances:
+  - name: vpc-cu-e1
+    interfaces:
+    - e1
+  - name: vpc-cudu-f1
+    interfaces:
+    - f1c
+  - name: vpc-ran
+    interfaces:
+    - n2
+  interfaces:
+  - name: e1
+    ipv4:
+      address: 172.4.1.2/16
+      gateway: ""
+    vlanID: 3
+  - name: f1c
+    ipv4:
+      address: 172.5.1.2/16
+      gateway: ""
+    vlanID: 4
+  - name: n2
+    ipv4:
+      address: 172.2.0.0/16
+      gateway: ""
+    vlanID: 2
