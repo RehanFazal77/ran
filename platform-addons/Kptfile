@@ -1,0 +1,42 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /platform-addons
+  name: platform-addons
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|platform-addons'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: platform-addons
+    ref: main
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/RehanFazal77/nephio-workload-blueprints.git
+    directory: platform-addons
+    ref: main
+    commit: e9854b1648d0394c2a359a6b0c043747adb1a1e3
+info:
+  site: https://nephio.org
+  description: Platform add-ons for Nephio workload clusters (storage, monitoring, resource management)
+  keywords:
+  - nephio
+  - addons
+  - storage
+  - monitoring
+pipeline:
+  mutators:
+  - name: PackageVariant.addons-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: ran
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: my-ran
+      enable-metrics-server: "true"
+      enable-nginx-ingress: "false"
+      enable-prometheus: "false"
+      local-path-provisioner: "true"
+      storage-class-name: local-path
