@@ -11,3 +11,17 @@ spec:
   - name: oai-amf-config
     apiVersion: workload.nephio.org/v1alpha1
     kind: NFConfig
+  networkInstances:
+  - name: vpc-ran
+    interfaces:
+    - n2
+  interfaces:
+  - name: n2
+    ipv4:
+      address: 172.2.0.1/16
+      gateway: ""
+    vlanID: 2
+  capacity:
+    maxDownlinkThroughput: "0"
+    maxSubscribers: 1000
+    maxUplinkThroughput: "0"
