@@ -28,6 +28,10 @@ info:
   - monitoring
 pipeline:
   mutators:
+  - name: PackageVariant.addons-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: ran
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
     configMap:
       cluster-name: my-ran
