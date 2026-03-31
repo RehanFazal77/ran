@@ -21,6 +21,7 @@ upstreamLock:
 info:
   description: example amf blueprint package
   readinessGates:
+  - conditionType: config.injection.WorkloadCluster.workload-cluster
   - conditionType: nephio.org.Specializer.specialize
 pipeline:
   mutators:
@@ -37,13 +38,38 @@ pipeline:
   - image: docker.io/nephio/nfdeploy-fn:latest
 status:
   conditions:
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
-    reason: Failed
+  - type: config.injection.WorkloadCluster.workload-cluster
+    status: "True"
+    message: injected resource "ran" from cluster
+    reason: ConfigInjected
+  - message: not ready
+    reason: Specialize
     status: "False"
     type: nephio.org.Specializer.specialize
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+  - message: create initial resource condition
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.n2
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
-    status: "False"
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.sbi
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+  - message: update for condition
+    status: "False"
+    type: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+  - message: child local resource -> done
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    status: "True"
+    type: req.nephio.org/v1alpha1.Capacity.control-plane
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.amf-ran-n2-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.amf-ran-n2
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: vlan.resource.nephio.org/v1alpha1.VLANClaim.amf-ran-n2
