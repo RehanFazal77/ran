@@ -13,3 +13,9 @@ spec:
     name: vpc-cu-e1
   cniType: macvlan
   attachmentType: vlan
+status:
+  ipClaimStatus:
+  - prefix: 172.4.1.2/16
+    gateway: ""
+  vlanClaimStatus:
+    vlanID: 3
