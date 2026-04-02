@@ -11,8 +11,8 @@ spec:
   selector:
     matchLabels:
       nephio.org/address-family: ipv4
-      nephio.org/cluster-name: placeholder
+      nephio.org/cluster-name: ran
       nephio.org/network-name: f1
   networkInstance:
     name: vpc-cudu-f1
-status: {prefix: 172.5.1.5/16, gateway: ""}
+status: {}
