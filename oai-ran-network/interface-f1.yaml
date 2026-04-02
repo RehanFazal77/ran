@@ -13,3 +13,7 @@ spec:
   networkInstance:
     name: vpc-cudu-f1
   cniType: macvlan
+status:
+  ipClaimStatus:
+  - prefix: 172.5.1.4/16
+    gateway: ""
