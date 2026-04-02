@@ -24,9 +24,10 @@ info:
     Generates IPClaims and NADs automatically via interface-fn + nad-fn pipeline.
     Uses Network CRs instead of NetworkInstance for IP pool management.
   readinessGates:
-  - conditionType: req.nephio.org/v1alpha1.Interface.n2
+  - conditionType: config.injection.WorkloadCluster.workload-cluster
   - conditionType: req.nephio.org/v1alpha1.Interface.e1
   - conditionType: req.nephio.org/v1alpha1.Interface.f1c
+  - conditionType: req.nephio.org/v1alpha1.Interface.n2
 pipeline:
   mutators:
   - image: docker.io/nephio/interface-fn:v2.0.0
@@ -37,80 +38,84 @@ pipeline:
       debug: "true"
 status:
   conditions:
-  - message: update for condition
+  - type: config.injection.WorkloadCluster.workload-cluster
     status: "False"
-    type: req.nephio.org/v1alpha1.Interface.e1
+    message: no resource matched any injection selector for this injection point
+    reason: NoResourceSelected
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.e1
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-e1-ipv4
   - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-e1
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.f1
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1
-    status: "False"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.du-f1-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.du-f1
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.f1c
-  - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.f1c
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-f1c-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1c
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-f1c
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.f1u
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "False"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-f1u-ipv4
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-f1u
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.n2
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.n2
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-n2-ipv4
   - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.n2
+    reason: req.nephio.org/v1alpha1.Interface.f1u
     status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-n2
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.n3
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-f1u-ipv4
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.n3
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-n3-ipv4
   - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Interface.n3
+    reason: req.nephio.org/v1alpha1.Interface.f1
     status: "False"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-n3
-  - message: update for condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Interface.n4
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.du-f1-ipv4
   - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.n4
     status: "False"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.smf-n4-ipv4
   - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-e1
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-f1c
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-n2
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1u
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-f1u
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n3
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-n3
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.du-f1
+  - message: create initial resource
     reason: req.nephio.org/v1alpha1.Interface.n4
     status: "False"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.smf-n4
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.e1
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.f1
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.f1c
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.f1u
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.n2
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.n3
+  - message: update for condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Interface.n4
