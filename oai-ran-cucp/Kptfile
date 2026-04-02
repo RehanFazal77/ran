@@ -74,14 +74,13 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.n2
     status: "True"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
-  - message: not ready
-    reason: Specialize
-    status: "False"
+  - reason: Ready
+    status: "True"
     type: nephio.org.Specializer.specialize
-  - message: create initial resource condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Dependency.amf
+  - message: update done
     reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+    status: "True"
+    type: req.nephio.org/v1alpha1.Dependency.amf
   - message: update done
     status: "True"
     type: req.nephio.org/v1alpha1.Interface.e1
@@ -106,6 +105,10 @@ status:
     reason: req.nephio.org/v1alpha1.Interface.n2
     status: "True"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-n2
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Dependency.amf
+    status: "True"
+    type: ref.nephio.org/v1alpha1.Config.cucp-ran-amf-ran
