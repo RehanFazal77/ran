@@ -77,6 +77,10 @@ status:
   - reason: Ready
     status: "True"
     type: nephio.org.Specializer.specialize
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Dependency.amf
+    status: "True"
+    type: ref.nephio.org/v1alpha1.Config.cucp-ran-amf-ran
   - message: update done
     reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
     status: "True"
@@ -108,7 +112,3 @@ status:
   - message: update done
     status: "True"
     type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
-  - message: create initial resource
-    reason: req.nephio.org/v1alpha1.Dependency.amf
-    status: "True"
-    type: ref.nephio.org/v1alpha1.Config.cucp-ran-amf-ran
