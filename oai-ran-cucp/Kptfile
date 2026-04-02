@@ -21,9 +21,16 @@ upstreamLock:
 info:
   description: example cucp blueprint package
   readinessGates:
+  - conditionType: config.injection.WorkloadCluster.workload-cluster
   - conditionType: nephio.org.Specializer.specialize
 pipeline:
   mutators:
+  - name: PackageVariant.oai-cucp-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      e1-interface: eno49
+      f1c-interface: eno50
+      n2-interface: ens1f0
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-replacements:v0.1.1
     configPath: apply-replacements-owner.yaml
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-replacements:v0.1.1
@@ -39,16 +46,66 @@ pipeline:
     configPath: interface-setters.yaml
 status:
   conditions:
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
-    reason: Failed
+  - type: config.injection.WorkloadCluster.workload-cluster
+    status: "True"
+    message: injected resource "ran" from cluster
+    reason: ConfigInjected
+  - message: not ready
+    reason: Specialize
     status: "False"
     type: nephio.org.Specializer.specialize
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+  - message: create initial resource condition
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.e1
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+  - message: create initial resource condition
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.f1c
-  - message: 'spec invalid: mandatory field ClusterName is missing from WorkloadCluster'
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+  - message: create initial resource condition
     status: "False"
     type: req.nephio.org/v1alpha1.Interface.n2
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+  - message: update for condition
+    status: "False"
+    type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+  - message: create initial resource condition
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+    status: "False"
+    type: req.nephio.org/v1alpha1.Dependency.amf
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-e1-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-e1
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "False"
+    type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-e1
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-f1c-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-f1c
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    status: "False"
+    type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-f1c
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-n2-ipv4
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    status: "False"
+    type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-n2
