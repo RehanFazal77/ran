@@ -1,0 +1,12 @@
+apiVersion: req.nephio.org/v1alpha1
+kind: Interface
+metadata: # kpt-merge: /sbi
+  name: sbi
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.NFDeployment.amf-example
+    specializer.nephio.org/namespace: oai-core
+    internal.kpt.dev/upstream-identifier: 'req.nephio.org|Interface|default|sbi'
+spec:
+  networkInstance:
+    name: default
