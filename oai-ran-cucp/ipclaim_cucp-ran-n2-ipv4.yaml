@@ -1,0 +1,18 @@
+apiVersion: ipam.resource.nephio.org/v1alpha1
+kind: IPClaim
+metadata:
+  name: cucp-ran-n2-ipv4
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    specializer.nephio.org/for: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+    specializer.nephio.org/owner: req.nephio.org/v1alpha1.Interface.n2
+spec:
+  kind: network
+  selector:
+    matchLabels:
+      nephio.org/address-family: ipv4
+      nephio.org/cluster-name: ran
+      nephio.org/network-name: n2
+  networkInstance:
+    name: vpc-ran
+status: {prefix: 172.2.0.0/24, gateway: ""}
