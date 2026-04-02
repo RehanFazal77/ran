@@ -48,30 +48,33 @@ status:
     status: "True"
     message: injected resource "ran" from cluster
     reason: ConfigInjected
-  - message: not ready
-    reason: Specialize
-    status: "False"
+  - reason: Ready
+    status: "True"
     type: nephio.org.Specializer.specialize
-  - message: create initial resource condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: req.nephio.org/v1alpha1.Interface.f1
     reason: workload.nephio.org/v1alpha1.NFDeployment.du-ran
-  - message: update for condition
-    status: "False"
+  - message: update done
+    status: "True"
     type: workload.nephio.org/v1alpha1.NFDeployment.du-ran
-  - message: create initial resource condition
+  - message: update done
     reason: workload.nephio.org/v1alpha1.NFDeployment.du-ran
-    status: "False"
+    status: "True"
     type: req.nephio.org/v1alpha1.Dependency.cucp
-  - message: create initial resource
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1
-    status: "False"
+    status: "True"
     type: ipam.resource.nephio.org/v1alpha1.IPClaim.du-ran-f1-ipv4
-  - message: create initial resource
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1
-    status: "False"
+    status: "True"
     type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.du-ran-f1
-  - message: create initial resource
+  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1
-    status: "False"
+    status: "True"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.du-ran-f1
+  - message: create initial resource
+    reason: req.nephio.org/v1alpha1.Dependency.cucp
+    status: "True"
+    type: ref.nephio.org/v1alpha1.Config.du-ran-cucp-ran
