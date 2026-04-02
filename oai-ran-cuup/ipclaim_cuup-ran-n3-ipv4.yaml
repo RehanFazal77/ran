@@ -15,4 +15,4 @@ spec:
       nephio.org/network-name: n3
   networkInstance:
     name: vpc-internet
-status: {}
+status: {prefix: 172.6.0.0/16, gateway: ""}
