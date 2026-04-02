@@ -1,9 +1,0 @@
-apiVersion: k8s.cni.cncf.io/v1
-kind: NetworkAttachmentDefinition
-metadata:
-  name: cuup-n3
-  namespace: oai-ran
-  annotations:
-    specializer.nephio.org/owner: req.nephio.org/v1alpha1.Interface.n3
-spec:
-  config: "{\"cniVersion\":\"0.3.1\",\"plugins\":[{\"type\":\"macvlan\",\"capabilities\":{\"ips\":true},\"master\":\"ens4f0\",\"mode\":\"bridge\",\"ipam\":{\"type\":\"static\",\"addresses\":[{\"address\":\"172.6.0.1/16\"}]}},{\"type\":\"tuning\",\"capabilities\":{\"mac\":true},\"ipam\":{}}]}"
