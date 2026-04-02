@@ -28,6 +28,10 @@ info:
   - macvlan
 pipeline:
   mutators:
+  - name: PackageVariant.multus-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: ran
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
     configMap:
       cni-plugins-image: ghcr.io/k8snetworkplumbingwg/plugins:v1.6.2
