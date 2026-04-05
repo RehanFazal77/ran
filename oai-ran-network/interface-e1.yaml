@@ -13,3 +13,7 @@ spec:
   networkInstance:
     name: vpc-cu-e1
   cniType: macvlan
+status:
+  ipClaimStatus:
+  - prefix: 172.4.1.0/16
+    gateway: ""
