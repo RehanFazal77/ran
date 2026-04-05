@@ -1,10 +1,10 @@
 apiVersion: kpt.dev/v1
 kind: Kptfile
-metadata: # kpt-merge: /oai-amf
+metadata:
   name: oai-amf
   annotations:
     config.kubernetes.io/local-config: "true"
-    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|oai-amf'
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|oai-amf
 upstream:
   type: git
   git:
@@ -40,35 +40,35 @@ status:
   conditions:
   - type: config.injection.WorkloadCluster.workload-cluster
     status: "True"
-    message: injected resource "ran" from cluster
     reason: ConfigInjected
-  - reason: Ready
+    message: injected resource "ran" from cluster
+  - type: nephio.org.Specializer.specialize
     status: "True"
-    type: nephio.org.Specializer.specialize
-  - message: update done
+    reason: Ready
+  - type: req.nephio.org/v1alpha1.Interface.n2
     status: "True"
-    type: req.nephio.org/v1alpha1.Interface.n2
     reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-  - message: update done
+    message: update done
+  - type: req.nephio.org/v1alpha1.Interface.sbi
     status: "True"
-    type: req.nephio.org/v1alpha1.Interface.sbi
     reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-  - message: update done
+    message: update done
+  - type: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
     status: "True"
-    type: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-  - message: child local resource -> done
+    message: update done
+  - type: req.nephio.org/v1alpha1.Capacity.control-plane
+    status: "True"
     reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    message: child local resource -> done
+  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.amf-ran-n2-ipv4
     status: "True"
-    type: req.nephio.org/v1alpha1.Capacity.control-plane
-  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n2
+    message: update done
+  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.amf-ran-n2
     status: "True"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.amf-ran-n2-ipv4
-  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n2
+    message: update done
+  - type: vlan.resource.nephio.org/v1alpha1.VLANClaim.amf-ran-n2
     status: "True"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.amf-ran-n2
-  - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n2
-    status: "True"
-    type: vlan.resource.nephio.org/v1alpha1.VLANClaim.amf-ran-n2
+    message: update done
