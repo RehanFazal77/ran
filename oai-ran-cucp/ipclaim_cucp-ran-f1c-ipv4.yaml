@@ -15,4 +15,4 @@ spec:
       nephio.org/network-name: f1
   networkInstance:
     name: vpc-cudu-f1
-status: {}
+status: {prefix: 172.5.1.3/16, gateway: ""}
