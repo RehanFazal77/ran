@@ -1,0 +1,22 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: oai-ran-operator
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|oai-ran-operator
+upstream:
+  type: git
+  git:
+    repo: https://github.com/rehanfazal77/nephio-blueprints.git
+    directory: workloads/oai-ran/oai-ran/oai-ran-operator
+    ref: main
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/rehanfazal77/nephio-blueprints.git
+    directory: workloads/oai-ran/oai-ran/oai-ran-operator
+    ref: main
+    commit: dd978a69a270fdb00f27dafca7786e76ad39a212
+info:
+  description: oai ran operator package
