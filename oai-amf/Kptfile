@@ -42,24 +42,6 @@ status:
     status: "True"
     reason: ConfigInjected
     message: injected resource "ran" from cluster
-  - type: nephio.org.Specializer.specialize
-    status: "True"
-    reason: Ready
-  - type: req.nephio.org/v1alpha1.Interface.n2
-    status: "True"
-    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-    message: update done
-  - type: req.nephio.org/v1alpha1.Interface.sbi
-    status: "True"
-    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-    message: update done
-  - type: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-    status: "True"
-    message: update done
-  - type: req.nephio.org/v1alpha1.Capacity.control-plane
-    status: "True"
-    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
-    message: child local resource -> done
   - type: ipam.resource.nephio.org/v1alpha1.IPClaim.amf-ran-n2-ipv4
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.n2
@@ -68,7 +50,25 @@ status:
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.n2
     message: update done
+  - type: nephio.org.Specializer.specialize
+    status: "True"
+    reason: Ready
+  - type: req.nephio.org/v1alpha1.Capacity.control-plane
+    status: "True"
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    message: child local resource -> done
+  - type: req.nephio.org/v1alpha1.Interface.n2
+    status: "True"
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    message: update done
+  - type: req.nephio.org/v1alpha1.Interface.sbi
+    status: "True"
+    reason: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    message: update done
   - type: vlan.resource.nephio.org/v1alpha1.VLANClaim.amf-ran-n2
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.n2
+    message: update done
+  - type: workload.nephio.org/v1alpha1.NFDeployment.amf-ran
+    status: "True"
     message: update done
