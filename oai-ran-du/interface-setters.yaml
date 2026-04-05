@@ -8,4 +8,4 @@ metadata: # kpt-merge: /interface-setters
     config.kubernetes.io/local-config: "true"
     internal.kpt.dev/upstream-identifier: '|ConfigMap|default|interface-setters'
 data:
-  f1-interface: "eno49" # kpt-set: ${f1-interface}
+  f1-interface: "ens4f1" # kpt-set: ${f1-interface}

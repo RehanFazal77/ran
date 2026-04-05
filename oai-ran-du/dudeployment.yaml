@@ -1,7 +1,7 @@
 apiVersion: workload.nephio.org/v1alpha1
 kind: NFDeployment
 metadata: # kpt-merge: example/du-example
-  name: du-example
+  name: du-ran
   namespace: oai-ran-du
   annotations:
     internal.kpt.dev/upstream-identifier: 'workload.nephio.org|NFDeployment|example|du-example'

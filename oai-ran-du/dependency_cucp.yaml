@@ -4,7 +4,7 @@ metadata: # kpt-merge: /cucp
   name: cucp
   annotations:
     config.kubernetes.io/local-config: "true"
-    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.NFDeployment.du-example
+    specializer.nephio.org/owner: workload.nephio.org/v1alpha1.NFDeployment.du-ran
     specializer.nephio.org/namespace: oai-ran-du
     internal.kpt.dev/upstream-identifier: 'req.nephio.org|Dependency|default|cucp'
 spec:
