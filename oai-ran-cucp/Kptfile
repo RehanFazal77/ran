@@ -50,9 +50,41 @@ status:
     status: "True"
     reason: ConfigInjected
     message: injected resource "ran" from cluster
+  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-e1-ipv4
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    message: update done
+  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-f1c-ipv4
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    message: update done
+  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-n2-ipv4
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    message: update done
+  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-e1
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    message: update done
+  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-f1c
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.f1c
+    message: update done
+  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Interface.n2
+    message: update done
   - type: nephio.org.Specializer.specialize
     status: "True"
     reason: Ready
+  - type: ref.nephio.org/v1alpha1.Config.cucp-ran-amf-ran
+    status: "True"
+    reason: req.nephio.org/v1alpha1.Dependency.amf
+    message: create initial resource
+  - type: req.nephio.org/v1alpha1.Dependency.amf
+    status: "True"
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
+    message: update done
   - type: req.nephio.org/v1alpha1.Interface.e1
     status: "True"
     reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
@@ -65,50 +97,18 @@ status:
     status: "True"
     reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
     message: update done
-  - type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
-    status: "True"
-    message: update done
-  - type: req.nephio.org/v1alpha1.Dependency.amf
-    status: "True"
-    reason: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
-    message: update done
-  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-e1-ipv4
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    message: update done
-  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-e1
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    message: update done
   - type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-e1
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.e1
-    message: update done
-  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-f1c-ipv4
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.f1c
-    message: update done
-  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-f1c
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.f1c
     message: update done
   - type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-f1c
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.f1c
     message: update done
-  - type: ipam.resource.nephio.org/v1alpha1.IPClaim.cucp-ran-n2-ipv4
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.n2
-    message: update done
-  - type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cucp-ran-n2
-    status: "True"
-    reason: req.nephio.org/v1alpha1.Interface.n2
-    message: update done
   - type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cucp-ran-n2
     status: "True"
     reason: req.nephio.org/v1alpha1.Interface.n2
     message: update done
-  - type: ref.nephio.org/v1alpha1.Config.cucp-ran-amf-ran
+  - type: workload.nephio.org/v1alpha1.NFDeployment.cucp-ran
     status: "True"
-    reason: req.nephio.org/v1alpha1.Dependency.amf
-    message: create initial resource
+    message: update done
