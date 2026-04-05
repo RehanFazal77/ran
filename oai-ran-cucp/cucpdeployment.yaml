@@ -1,7 +1,7 @@
 apiVersion: workload.nephio.org/v1alpha1
 kind: NFDeployment
 metadata: # kpt-merge: example/cucp-example
-  name: cucp-example
+  name: cucp-ran
   namespace: oai-ran-cucp
   annotations:
     internal.kpt.dev/upstream-identifier: 'workload.nephio.org|NFDeployment|example|cucp-example'
