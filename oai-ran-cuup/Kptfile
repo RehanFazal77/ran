@@ -50,10 +50,38 @@ status:
     status: "True"
     message: injected resource "ran" from cluster
     reason: ConfigInjected
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "True"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-e1-ipv4
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.f1u
+    status: "True"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-f1u-ipv4
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.n3
+    status: "True"
+    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-n3-ipv4
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.e1
+    status: "True"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-e1
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.f1u
+    status: "True"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-f1u
+  - message: update done
+    reason: req.nephio.org/v1alpha1.Interface.n3
+    status: "True"
+    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-n3
   - message: not ready
     reason: Specialize
     status: "False"
     type: nephio.org.Specializer.specialize
+  - message: create initial resource condition
+    status: "False"
+    type: req.nephio.org/v1alpha1.Dependency.cucp
+    reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
   - message: update done
     status: "True"
     type: req.nephio.org/v1alpha1.Interface.e1
@@ -66,21 +94,6 @@ status:
     status: "True"
     type: req.nephio.org/v1alpha1.Interface.n3
     reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: update for condition
-    status: "False"
-    type: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: create initial resource condition
-    status: "False"
-    type: req.nephio.org/v1alpha1.Dependency.cucp
-    reason: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "True"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-e1-ipv4
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.e1
-    status: "True"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-e1
   - message: update done
     reason: req.nephio.org/v1alpha1.Interface.e1
     status: "True"
@@ -88,24 +101,11 @@ status:
   - message: update done
     reason: req.nephio.org/v1alpha1.Interface.f1u
     status: "True"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-f1u-ipv4
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "True"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-f1u
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.f1u
-    status: "True"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-f1u
   - message: update done
     reason: req.nephio.org/v1alpha1.Interface.n3
     status: "True"
-    type: ipam.resource.nephio.org/v1alpha1.IPClaim.cuup-ran-n3-ipv4
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.n3
-    status: "True"
-    type: k8s.cni.cncf.io/v1.NetworkAttachmentDefinition.cuup-ran-n3
-  - message: update done
-    reason: req.nephio.org/v1alpha1.Interface.n3
-    status: "True"
     type: vlan.resource.nephio.org/v1alpha1.VLANClaim.cuup-ran-n3
+  - message: update for condition
+    status: "False"
+    type: workload.nephio.org/v1alpha1.NFDeployment.cuup-ran
