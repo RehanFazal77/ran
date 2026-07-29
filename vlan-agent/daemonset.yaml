@@ -9,7 +9,7 @@ metadata: # kpt-merge: kube-system/vlan-agent
   namespace: kube-system
   labels:
     app: vlan-agent
-    nephio.org/cluster-name: example # kpt-set: ${cluster-name}
+    nephio.org/cluster-name: ran # kpt-set: ${cluster-name}
   annotations:
     internal.kpt.dev/upstream-identifier: 'apps|DaemonSet|kube-system|vlan-agent'
 spec:

@@ -20,11 +20,11 @@ metadata: # kpt-merge: kube-system/vlan-agent-config
   namespace: kube-system
   labels:
     app: vlan-agent
-    nephio.org/cluster-name: example # kpt-set: ${cluster-name}
+    nephio.org/cluster-name: ran # kpt-set: ${cluster-name}
   annotations:
     internal.kpt.dev/upstream-identifier: '|ConfigMap|kube-system|vlan-agent-config'
 data:
-  master-interface: ens3 # kpt-set: ${master-interface}
+  master-interface: ens4f0 # kpt-set: ${master-interface}
   vlan-range: "2 3 4 5 6" # kpt-set: ${vlan-range}
   reconcile-interval: "30" # kpt-set: ${reconcile-interval}
   vlan-agent.sh: |

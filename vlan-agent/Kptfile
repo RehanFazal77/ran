@@ -53,5 +53,12 @@ info:
   - multus
 pipeline:
   mutators:
+  - name: PackageVariant.vlan-agent-ran..0
+    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+    configMap:
+      cluster-name: ran
+      master-interface: ens4f0
+      reconcile-interval: "30"
+      vlan-range: 2 3 4 5 6
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
     configPath: vlan-setters.yaml
