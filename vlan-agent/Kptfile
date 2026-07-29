@@ -1,10 +1,10 @@
 apiVersion: kpt.dev/v1
 kind: Kptfile
-metadata: # kpt-merge: /vlan-agent
+metadata:
   name: vlan-agent
   annotations:
     config.kubernetes.io/local-config: "true"
-    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|vlan-agent'
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|vlan-agent
 upstream:
   type: git
   git:
@@ -53,12 +53,12 @@ info:
   - multus
 pipeline:
   mutators:
-  - name: PackageVariant.vlan-agent-ran..0
-    image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+  - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
     configMap:
       cluster-name: ran
       master-interface: ens4f0
       reconcile-interval: "30"
       vlan-range: 2 3 4 5 6
+    name: PackageVariant.vlan-agent-ran..0
   - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
     configPath: vlan-setters.yaml
