@@ -1,0 +1,44 @@
+# RBAC for the vlan-agent DaemonSet.
+# The agent only needs read access to NetworkAttachmentDefinitions,
+# cluster-wide, so it can discover which VLAN sub-interfaces the
+# Nephio specialization pipeline (nad-fn) expects on the nodes.
+apiVersion: v1
+kind: ServiceAccount
+metadata: # kpt-merge: kube-system/vlan-agent
+  name: vlan-agent
+  namespace: kube-system
+  labels:
+    app: vlan-agent
+    nephio.org/cluster-name: ran # kpt-set: ${cluster-name}
+  annotations:
+    internal.kpt.dev/upstream-identifier: '|ServiceAccount|kube-system|vlan-agent'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata: # kpt-merge: /vlan-agent
+  name: vlan-agent
+  labels:
+    app: vlan-agent
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'rbac.authorization.k8s.io|ClusterRole|default|vlan-agent'
+rules:
+- apiGroups: ["k8s.cni.cncf.io"]
+  resources: ["network-attachment-definitions"]
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata: # kpt-merge: /vlan-agent
+  name: vlan-agent
+  labels:
+    app: vlan-agent
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'rbac.authorization.k8s.io|ClusterRoleBinding|default|vlan-agent'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: vlan-agent
+subjects:
+- kind: ServiceAccount
+  name: vlan-agent
+  namespace: kube-system
