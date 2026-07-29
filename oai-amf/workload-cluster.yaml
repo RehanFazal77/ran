@@ -11,4 +11,4 @@ spec:
   clusterName: ran
   cnis:
   - macvlan
-  masterInterface: ens3
+  masterInterface: ens4f0
